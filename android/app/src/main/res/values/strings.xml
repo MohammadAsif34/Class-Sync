@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Routine App</string>
+    <string name="title_activity_main">Routine App</string>
+    <string name="package_name">com.routine.aliah.app</string>
+    <string name="custom_url_scheme">com.routine.aliah.app</string>
+</resources>

@@ -1,0 +1,75 @@
+--------------------------------------------------------------------------------------------
+FOR ANDROID APP BUILD
+--------------------------------------------------------------------------------------------
+# 1. Install Capacitor core and CLI
+npm install @capacitor/core @capacitor/cli
+
+# 2. Initialize Capacitor (if not done already)
+npx cap init   # Enter app name and package id (e.g., com.example.app)
+
+# 3. Add the Android platform
+npm install @capacitor/android
+npx cap add android   # Creates the native Android project
+
+# 4. (Optional) Install required Capacitor plugins
+# For example, for network status and storage:
+npm install @capacitor/network @capacitor/storage
+
+# 5. Build your React/Vite app
+npm run build   # Generates the production-ready web assets
+
+# 6. Copy the built files into the native Android app
+npx cap copy android   # Copies dist/build files into android/app/src/main/assets
+
+# 7. Sync plugins and dependencies (recommended)
+npx cap sync android   # Updates Capacitor native plugins in the Android project
+
+# 8. Open the project in Android Studio (to run or build)
+npx cap open android
+
+# 9. (Optional) Build debug APK from CLI (without opening Android Studio)
+cd android
+./gradlew assembleDebug
+# Debug APK will be in android/app/build/outputs/apk/debug/app-debug.apk
+
+# 10. (Optional) Build release APK (signed or unsigned)
+./gradlew assembleRelease
+# Release APK will be in android/app/build/outputs/apk/release/app-release.apk
+
+--------------------------------------------------------------------------------------------
+FOR IOS APP Build
+--------------------------------------------------------------------------------------------
+1. Install Capacitor core and CLI (if not already installed)
+npm install @capacitor/core @capacitor/cli
+
+2. Initialize Capacitor (only if not done yet)
+npx cap init   # Enter app name and package id (e.g., com.example.app)
+
+3. Add iOS platform
+npm install @capacitor/ios
+npx cap add ios   # Creates the native iOS project (ios/ folder)
+
+4. (Optional) Install Capacitor plugins (example: network and storage)
+npm install @capacitor/network @capacitor/storage
+
+5. Build your web app
+npm run build   # Generates production-ready files in /dist or /build folder
+
+6. Copy web build to the iOS project
+npx cap copy ios
+
+7. Sync plugins and native dependencies (recommended)
+npx cap sync ios
+
+# 8. Open the iOS project in Xcode
+npx cap open ios
+
+9. Build and run in Xcode
+#    - Select a simulator or connected iPhone
+#    - Click "Run" (or Cmd + R)
+
+10. Create an archive for App Store or TestFlight
+#    In Xcode: Product > Archive
+#    After building, use Organizer to export a signed .ipa file
+11. Run on iOS Simulator (Optional, via CLI)
+npx cap run ios
