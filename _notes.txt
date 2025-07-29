@@ -36,6 +36,31 @@ cd android
 ./gradlew assembleRelease
 # Release APK will be in android/app/build/outputs/apk/release/app-release.apk
 
+
+
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+npm install @capacitor/core @capacitor/cli @capacitor/android @capacitor/network @capacitor/storage
+npm install @capacitor/android
+npm install @capacitor/network @capacitor/storage
+
++------+------------------------+-----------------------------------------------------------+
+| Step | Command                | Purpose                                                   |
+| ---- | ---------------------- | --------------------------------------------------------- |
+| 1    | `npx cap init`         | Initialize Capacitor project (creates `capacitor.config`) |
+| 2    | `npx cap add android`  | Add Android platform (creates `android/` folder)          |
+| 3    | `npm run build`        | Build frontend (outputs to `dist` or `build` folder)      |
+| 4    | `npx cap copy android` | Copy web assets to Android app                            |
+| 5    | `npx cap sync android` | Sync plugins and dependencies to native project           |
+| 6    | `npx cap open android` | Open project in Android Studio for native build/testing   |
++------+------------------------+-----------------------------------------------------------+
+
+
+
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------
 FOR IOS APP Build
 --------------------------------------------------------------------------------------------

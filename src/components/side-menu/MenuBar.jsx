@@ -1,76 +1,115 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useApp } from "../../context/CreateContext";
-import AvatarProfile from "../component/AvatarProfile";
 import { toast } from "react-toastify";
 import { useHybridNetworkStatus } from "../../hooks/useHybridNetworkStatus";
+import Footer from "../component/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { closeMenu, toggleMenu } from "../../stores/features/menubar/menuSlice";
+import MenuHeader from "./MenuHeader";
+import { Link, useNavigate } from "react-router-dom";
+import { menuItem } from "../../assets/menuItem";
+import MenuItem from "./MenuItem";
+
+const slideVariants = {
+  hidden: { x: "100%", opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeInOut",
+    },
+  },
+  exit: {
+    x: "100%",
+    opacity: 0,
+    transition: {
+      duration: 5,
+      ease: "easeInOut",
+    },
+  },
+};
 
 const MenuBar = () => {
-  const slideVariants = {
-    hidden: { x: "100%", opacity: 0 },
-    visible: { x: 0, opacity: 1 },
-    exit: { x: "100%", opacity: 0 },
-  };
-
-  const { setMenu } = useApp();
-
   const isOnline = useHybridNetworkStatus();
-  const handleLogin = async () => {
-    console.log("isOnline ::> ", isOnline);
-    if (!isOnline) {
-      toast.error("You are offline");
+  const isAuth = useSelector((s) => s.user.isAuth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleClick = (link) => {
+    dispatch(closeMenu());
+    console.log("link", link);
+    if (link == "") {
+      toast.info("Coming soon...");
       return;
     }
-
-    toast.warn("You are Not Authorize!");
+    navigate(link);
   };
 
   return (
-    <>
-      <AnimatePresence>
-        <motion.div
-          variants={slideVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          className={` h-screen bg-[#F8FBF8]  shadow-lg flex flex-col `}
-        >
-          <div className="px-2 py-1 border flex justify-between items-center">
-            <button onClick={() => setMenu(false)}>
-              <i className="fa-solid fa-close"></i>
-            </button>
+    <AnimatePresence>
+      <motion.aside
+        variants={slideVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="h-screen w-[90vw] sm:w-[350px] bg-white shadow-2xl flex flex-col  rounded-l-xl overflow-hidden"
+      >
+        {/* Header */}
+        <div className="px-4 py-3 pt-10 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+          <h1 className="text-lg font-semibold text-gray-700">Menu</h1>
+          <button
+            onClick={() => dispatch(toggleMenu())}
+            className="text-gray-500 hover:text-red-500 transition"
+          >
+            <i className="fa-solid fa-xmark text-xl"></i>
+          </button>
+        </div>
+
+        {/* Network Status */}
+        {isOnline && (
+          <div className="px-4 py-1 text-xs text-emerald-500 font-medium tracking-wide">
+            ✅ You’re Online
           </div>
-          <div className=" py-2 px-4 flex justify-between items-center relative border">
-            <p className="font-semibold">
-              {"Guest"}
+        )}
 
-              <button
-                className="px-2 py-1 text-emerald-400 active:text-emerald-300 cursor-pointer"
-                onClick={() => handleLogin()}
-              >
-                <i className="fa-solid fa-right-to-bracket"></i>
-              </button>
-            </p>
-            <AvatarProfile src={""} />
-          </div>
-          <hr className="text-gray-300" />
+        {/* Profile Header */}
+        <div className="border-y border-gray-100">
+          <MenuHeader />
+        </div>
 
-          {/* offline  */}
-          {!isOnline && <div>you are Offline</div>}
+        {/* Menu List */}
+        <nav className="flex-1 overflow-y-auto px-4 py-4 text-gray-700">
+          <ul className="space-y-2">
+            {menuItem?.map((item, idx) => (
+              <MenuItem
+                key={item?._id || idx}
+                label={item?.label}
+                icon={item?.icon}
+                onClick={() => handleClick(item?.link)}
+              />
+            ))}
+          </ul>
+        </nav>
 
-          {/* online  */}
-          {/* Menu item  */}
-          <div className="w-full p-2  flex-1 ">{isOnline && <div></div>}</div>
+        {/* Footer Actions */}
+        {isAuth && (
+          <motion.button
+            onClick={() => toast.success("Logout successfully")}
+            className="w-full py-3 text-sm font-semibold text-rose-500 border-t border-gray-200 hover:bg-rose-50 transition"
+            whileTap={{ scale: 0.97 }}
+          >
+            <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
+            Logout
+          </motion.button>
+        )}
 
-          {/* Footer  */}
-          <hr className="text-gray-300" />
-          <div className="py-2 text-[10px] text-center text-gray-400">
-            <p>&copy; 2025 | Routine@App</p>
-            <p>Developed By: Mohammad Asif</p>
-          </div>
-        </motion.div>
-      </AnimatePresence>
-    </>
+        {/* Footer */}
+        <div className="border-t border-gray-100">
+          <Footer />
+        </div>
+      </motion.aside>
+    </AnimatePresence>
   );
 };
 

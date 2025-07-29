@@ -1,0 +1,323 @@
+{
+  "university": "Aliah University",
+  "department": "Under the Department of Minority Affairs and Madrasah Education, Govt. of West Bengal",
+  "notification_memo_no": "AU/REG/1217/24",
+  "notification_date": "19.12.2024",
+  "year": 2025,
+  "holidays": [
+    {
+      "sl_no": 1,
+      "events": "New Year's Day",
+      "month": "January",
+      "date": "01",
+      "day": "Wednesday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 2,
+      "events": "Birthday of Swami Vivekananda",
+      "month": "January",
+      "date": "12",
+      "day": "Sunday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 3,
+      "events": "Birthday of Netaji",
+      "month": "January",
+      "date": "23",
+      "day": "Thursday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 4,
+      "events": "Republic Day",
+      "month": "January",
+      "date": "26",
+      "day": "Sunday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 5,
+      "events": "Shab-e-Meraj",
+      "month": "January",
+      "date": "28",
+      "day": "Tuesday",
+      "no_of_holidays": 1,
+      "note": "Subject to the sighting of the Moon"
+    },
+    {
+      "sl_no": 6,
+      "events": "Saraswati Puja (Shree Panchami), Day after Saraswati Puja",
+      "month": "February",
+      "date": "02-03",
+      "day": "Sunday-Monday",
+      "no_of_holidays": 2
+    },
+    {
+      "sl_no": 7,
+      "events": "Birthday of Thakur Panchanan Barma & Shab-e-Barat",
+      "month": "February",
+      "date": "14",
+      "day": "Friday",
+      "no_of_holidays": 1,
+      "note": "Shab-e-Barat is subject to the sighting of the Moon"
+    },
+    {
+      "sl_no": 8,
+      "events": "Shivaratri",
+      "month": "February",
+      "date": "26",
+      "day": "Wednesday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 9,
+      "events": "Doljatra & Day after Doljatra",
+      "month": "March",
+      "date": "14-15",
+      "day": "Friday-Saturday",
+      "no_of_holidays": 2
+    },
+    {
+      "sl_no": 10,
+      "events": "Birthdy of Shri Shri Harichand Thakur & Shab-e-Qadr",
+      "month": "March",
+      "date": "27",
+      "day": "Thursday",
+      "no_of_holidays": 1,
+      "note": "Shab-e-Qadr is subject to the sighting of the Moon"
+    },
+    {
+      "sl_no": 11,
+      "events": "Jummatul-Wada",
+      "month": "March",
+      "date": "28",
+      "day": "Friday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 12,
+      "events": "Eid-ul-Fitr",
+      "month": "March-April",
+      "date": "31-02",
+      "day": "Monday-Wednesday",
+      "no_of_holidays": 3,
+      "note": "Subject to the sighting of the Moon"
+    },
+    {
+      "sl_no": 13,
+      "events": "University Foundation Day",
+      "month": "April",
+      "date": "05",
+      "day": "Saturday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 14,
+      "events": "Ram Navami",
+      "month": "April",
+      "date": "06",
+      "day": "Sunday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 15,
+      "events": "Mahavir Jayanti",
+      "month": "April",
+      "date": "10",
+      "day": "Thursday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 16,
+      "events": "Birthday of Dr. B. R. Ambedkar",
+      "month": "April",
+      "date": "14",
+      "day": "Monday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 17,
+      "events": "Bengali New Year's Day (Nababarsha)",
+      "month": "April",
+      "date": "15",
+      "day": "Tuesday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 18,
+      "events": "Good Friday",
+      "month": "April",
+      "date": "18",
+      "day": "Friday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 19,
+      "events": "May Day",
+      "month": "May",
+      "date": "01",
+      "day": "Thursday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 20,
+      "events": "Birthday of Rabindra Nath Tagore",
+      "month": "May",
+      "date": "09",
+      "day": "Friday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 21,
+      "events": "Buddha Purnima & Birthday of Pandit Raghunath Murmu",
+      "month": "May",
+      "date": "12",
+      "day": "Monday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 22,
+      "events": "Day before Eid-ul-Azha & Eid-ul-Azha",
+      "month": "June",
+      "date": "06-09",
+      "day": "Friday-Monday",
+      "no_of_holidays": 4,
+      "note": "Subject to the sighting of the Moon"
+    },
+    {
+      "sl_no": 23,
+      "events": "Rathayatra",
+      "month": "June",
+      "date": "27",
+      "day": "Friday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 24,
+      "events": "Muharram (Aashuraa)",
+      "month": "July",
+      "date": "06",
+      "day": "Sunday",
+      "no_of_holidays": 1,
+      "note": "Subject to the sighting of the Moon"
+    },
+    {
+      "sl_no": 25,
+      "events": "Rakhi Bandhan",
+      "month": "August",
+      "date": "09",
+      "day": "Saturday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 26,
+      "events": "Independence Day & Janmastami",
+      "month": "August",
+      "date": "15",
+      "day": "Friday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 27,
+      "events": "Akhri Chahar Shambah",
+      "month": "August",
+      "date": "20",
+      "day": "Wednesday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 28,
+      "events": "Fateha-Dwaz-Dahum",
+      "month": "September",
+      "date": "05",
+      "day": "Friday",
+      "no_of_holidays": 1,
+      "note": "Subject to the sighting of the Moon"
+    },
+    {
+      "sl_no": 29,
+      "events": "Mahalaya",
+      "month": "September",
+      "date": "21",
+      "day": "Sunday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 30,
+      "events": "Durga Puja, Additional Day in Connection with Durga Puja, Birthday of Gandhiji, Fateha-Yez-Daham",
+      "month": "September-October",
+      "date": "26-04",
+      "day": "Friday-Saturday",
+      "no_of_holidays": 9
+    },
+    {
+      "sl_no": 31,
+      "events": "Laxmi Puja, Additional Day in connection with Laxmi Puja, Calcutta Madrasah Foundation Day",
+      "month": "October",
+      "date": "06-07",
+      "day": "Monday-Tuesday",
+      "no_of_holidays": 2
+    },
+    {
+      "sl_no": 32,
+      "events": "Kalipuja, Additional Days in Connection with Kali Puja",
+      "month": "October",
+      "date": "20-22",
+      "day": "Monday-Wednesday",
+      "no_of_holidays": 3
+    },
+    {
+      "sl_no": 33,
+      "events": "Bhatriditiya & Day after Bhatriditiya",
+      "month": "October",
+      "date": "23-24",
+      "day": "Thursday-Friday",
+      "no_of_holidays": 2
+    },
+    {
+      "sl_no": 34,
+      "events": "Chhat Puja & Additional Day for Chhat Puja",
+      "month": "October",
+      "date": "27-28",
+      "day": "Monday-Tuesday",
+      "no_of_holidays": 2
+    },
+    {
+      "sl_no": 35,
+      "events": "Birthday of Guru Nanak",
+      "month": "November",
+      "date": "05",
+      "day": "Wednesday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 36,
+      "events": "Birthday of Birsa Munda",
+      "month": "November",
+      "date": "15",
+      "day": "Saturday",
+      "no_of_holidays": 1
+    },
+    {
+      "sl_no": 37,
+      "events": "Christmas",
+      "month": "December",
+      "date": "25",
+      "day": "Thursday",
+      "no_of_holidays": 1
+    },
+    {
+      "event": "Karam Puja",
+      "note": "To be notified later on"
+    },
+    {
+      "event": "Vice-Chancellor's Discretion",
+      "no_of_holidays": 3
+    }
+  ],
+  "additional_holidays": "",
+  "total_holidays_declared": 57,
+  "total_working_day_holidays": 42
+}

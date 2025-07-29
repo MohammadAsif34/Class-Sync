@@ -2,8 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import routineData from "../../assets/routine.json";
 import { useApp } from "../../context/CreateContext";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import ClassCard from "./ClassCard";
 
 const DayRoutine = () => {
   const { dayRoutine } = useApp();
@@ -41,39 +40,3 @@ const DayRoutine = () => {
 };
 
 export default DayRoutine;
-
-const ClassCard = ({ idx = 0, item = {} }) => {
-  const navigate = useNavigate();
-  const handleSyllabus = (id) => {
-    if (!id) {
-      toast.error("No Syllabus found!");
-      return;
-    }
-    navigate(`syllabus/${id}`);
-  };
-  return (
-    <motion.li
-      className="mb-3 bg-neutral-100 shadow-sm p-2 rounded-xl "
-      initial={{ y: 0, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: 0, opacity: 0 }}
-      transition={{ delay: idx * 0.1 }}
-    >
-      {/* <div className="font-semibold">{item.subject}</div> */}
-      <div
-        className="text-sm text-gray-500"
-        onClick={() => handleSyllabus(item?.subjectCode)}
-      >
-        <div className=" text-xs flex justify-between">
-          <p>
-            {`${item?.subjectCode}`}{" "}
-            <span className="text-gray-400"> • credit : {item?.credit}</span>
-          </p>
-          <p>{item?.time}</p>
-        </div>
-        <p className="text-lg py-2 font-semibold">{item?.subject}</p>
-        <p className="text-center text-xs ">{item?.instructor}</p>
-      </div>
-    </motion.li>
-  );
-};

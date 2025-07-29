@@ -1,0 +1,27 @@
+[
+  {
+    "label": "Course",
+    "name": "course",
+    "options": ["B.Tech"]
+  },
+  {
+    "label": "Department",
+    "name": "department",
+    "options": ["CSE"]
+  },
+  {
+    "label": "Semester",
+    "name": "semester",
+    "options": ["7"]
+  },
+  {
+    "label": "Elective",
+    "name": "elective",
+    "options": ["Natural Processing Langauge", "Internet of Things"]
+  },
+  {
+    "label": "Internal Elective",
+    "name": "iselective",
+    "options": ["Computer Vision", "E-commerce ERP"]
+  }
+]

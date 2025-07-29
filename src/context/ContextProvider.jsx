@@ -15,9 +15,20 @@ export const AppContextProvider = ({ children }) => {
 
   const [menu, setMenu] = useState(false);
 
+  const [isDownload, setIsDownload] = useState(false);
+
   return (
     <AppContext.Provider
-      value={{ theme, setTheme, dayRoutine, setDayRoutine, menu, setMenu }}
+      value={{
+        theme,
+        setTheme,
+        dayRoutine,
+        setDayRoutine,
+        menu,
+        setMenu,
+        isDownload,
+        setIsDownload,
+      }}
     >
       {children}
     </AppContext.Provider>

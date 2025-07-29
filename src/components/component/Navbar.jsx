@@ -1,51 +1,52 @@
 import React from "react";
-import { useHybridNetworkStatus } from "../../hooks/useHybridNetworkStatus";
-import { useApp } from "../../context/CreateContext";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../../stores/features/menubar/menuSlice";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+// If using src/assets
+// import logo from "../../assets/logo.png";
 
 const Navbar = () => {
-  const networkStatus = useHybridNetworkStatus();
-  const { setMenu } = useApp();
+  const dispatch = useDispatch();
 
   return (
-    <div className=" min-h-18 px-3 py-3 bg-emerald-400 flex justify-between text-white">
-      <div className="">
-        <p className=" font-mono font-semibold">Hii, Student</p>
-        <p className="text-3xl font-bold font-sans">ClassSync</p>
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 80, damping: 10 }}
+      className="px-4 py-3 pt-10 bg-emerald-500 flex justify-between items-center text-white shadow-sm"
+    >
+      {/* Left: Logo and Text */}
+      <div className="flex items-center space-x-3">
+        <Link to={"/"}>
+          <img
+            src="/ClassSync.png" // or use `logo` if imported
+            alt="ClassSync Logo"
+            className="w-12 h-12 object-contain rounded-lg"
+          />
+        </Link>
+        <div>
+          <p className="text-sm font-mono font-medium tracking-wide">
+            Hi, Student
+          </p>
+          <h1 className="text-2xl font-bold font-sans tracking-tight">
+            Class Sync
+          </h1>
+        </div>
       </div>
-      <div className="">
-        {/* {false && <ProfileAvatar />} */}
-        <p className=" py-2 text-xs">
-          {networkStatus && (
-            <span>
-              <i className="fa-solid fa-circle text-[5px] px-3 -translate-y-0.5 text-green-300"></i>
-              online
-            </span>
-          )}
-        </p>
-        <button
-          className=" float-end align-baseline"
-          onClick={() => setMenu(true)}
-        >
-          <i className="fa-solid fa-bars"></i>
-        </button>
-      </div>
-    </div>
+
+      {/* Right: Menu Icon */}
+      <motion.button
+        whileTap={{ scale: 0.9 }}
+        whileHover={{ rotate: 5 }}
+        onClick={() => dispatch(toggleMenu())}
+        className="p-2 rounded-md hover:bg-emerald-600 transition"
+        aria-label="Toggle menu"
+      >
+        <i className="fa-solid fa-bars text-xl"></i>
+      </motion.button>
+    </motion.header>
   );
 };
 
 export default Navbar;
-
-const ProfileAvatar = () => {
-  return (
-    <>
-      <div className="w-8 h-8 rounded-full overflow-hidden bg-white">
-        <img
-          src="/react.svg"
-          alt=""
-          className="w-full h-full rounded-full object-center object-cover"
-          loading="eager"
-        />
-      </div>
-    </>
-  );
-};
