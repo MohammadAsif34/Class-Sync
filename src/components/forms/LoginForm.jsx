@@ -1,21 +1,42 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
+import { LoginAPI } from "../../services/auth.action";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     email: "",
     password: "",
     role: "student", // default
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleRoleChange = (e) => setForm({ ...form, role: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     console.log("Login Form Data:", form);
+    try {
+      const res = await LoginAPI(form);
+      console.log("login api res ::>", res.message);
+      if (res.status == "SUCCESS") {
+        navigate("/");
+        toast.success(res.message);
+      } else {
+        toast.error(res.message);
+      }
+    } catch (error) {
+      console.log("Error login form ::> ", error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

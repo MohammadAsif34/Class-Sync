@@ -1,7 +1,39 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { ProtectedAPI } from "../services/auth.action";
+import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser } from "../stores/features/user/userSlice";
 
 const LoadingPage = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((s) => s.user.user);
+
+  useEffect(() => {
+    console.log("User ::> ", user);
+  });
+
+  useEffect(() => {
+    const protectMe = async () => {
+      try {
+        const res = await ProtectedAPI();
+        console.log("protectME ::>", res);
+        console.log(res.message);
+        if (res.status == "SUCCESS") {
+          dispatch(setUser(res?.user));
+          // toast.success(res.message);
+        } else {
+          console.log(res.message);
+          // toast.success(res.message);
+        }
+      } catch (error) {
+        console.log("error protected ::> ", error.message);
+      }
+    };
+    protectMe();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
       {/* Logo */}

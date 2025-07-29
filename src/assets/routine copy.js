@@ -1,7 +1,11 @@
 export const routine = {
-  semester_7: [
+  program: "B.Tech",
+  department: "CSE",
+  semester: "7",
+  timetable: [
     {
-      1: [
+      dayName: "Monday",
+      sessions: [
         {
           time: "11:00-01:00",
           subject: "Industrial Economics & Management",
@@ -26,7 +30,8 @@ export const routine = {
       ],
     },
     {
-      2: [
+      dayName: "Tuesday",
+      sessions: [
         {
           time: "01:40-04:40",
           subject: "Machine Learning & Soft Computing Lab (606)",
@@ -37,7 +42,8 @@ export const routine = {
       ],
     },
     {
-      3: [
+      dayName: "Wednesday",
+      sessions: [
         {
           time: "11:00-01:00",
           subject: "Industrial Economics & Management",
@@ -69,7 +75,8 @@ export const routine = {
       ],
     },
     {
-      4: [
+      dayName: "Thursday",
+      sessions: [
         {
           time: "10:00-12:00",
           subject: "Soft Skills",
@@ -108,7 +115,8 @@ export const routine = {
       ],
     },
     {
-      5: [
+      dayName: "Friday",
+      sessions: [
         {
           time: "09:30-12:30",
           subject: "TPO-Softskill (9.30 -12.30)",
@@ -132,5 +140,5 @@ export const routine = {
         },
       ],
     },
-  ]
-}
+  ],
+};

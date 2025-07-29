@@ -9,6 +9,8 @@ import MenuHeader from "./MenuHeader";
 import { Link, useNavigate } from "react-router-dom";
 import { menuItem } from "../../assets/menuItem";
 import MenuItem from "./MenuItem";
+import { LogoutAPI } from "../../services/auth.action";
+import { unSetUser } from "../../stores/features/user/userSlice";
 
 const slideVariants = {
   hidden: { x: "100%", opacity: 0 },
@@ -44,6 +46,22 @@ const MenuBar = () => {
       return;
     }
     navigate(link);
+  };
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await LogoutAPI();
+      console.log("logout res ::> ", res);
+      if (res.status == "SUCCESS") {
+        dispatch(unSetUser());
+        toast.success(res.message);
+      } else {
+        toast.success(res.message);
+      }
+    } catch (error) {
+      console.log("error to logout ::> ", error.message);
+    }
   };
 
   return (
@@ -95,7 +113,7 @@ const MenuBar = () => {
         {/* Footer Actions */}
         {isAuth && (
           <motion.button
-            onClick={() => toast.success("Logout successfully")}
+            onClick={handleLogout}
             className="w-full py-3 text-sm font-semibold text-rose-500 border-t border-gray-200 hover:bg-rose-50 transition"
             whileTap={{ scale: 0.97 }}
           >
