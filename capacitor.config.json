@@ -1,5 +1,9 @@
 {
   "appId": "com.classsync.routine.aliah.app",
   "appName": "Class Sync",
-  "webDir": "dist"
+  "webDir": "dist",
+  "server": {
+    "url": "https://class-sync-routine.netlify.app/",
+    "cleartext": true
+  }
 }
