@@ -27,7 +27,7 @@ const Navbar = () => {
         </Link>
         <div>
           <p className="text-sm font-mono font-medium tracking-wide">
-            Hi, Student
+            Hi, Students
           </p>
           <h1 className="text-2xl font-bold font-sans tracking-tight">
             Class Sync
