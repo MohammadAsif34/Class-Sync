@@ -4,9 +4,10 @@ import ProfileAvatar from "../component/ProfileAvatar";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { closeMenu } from "../../stores/features/menubar/menuSlice";
+import { toast } from "react-toastify";
 
 const MenuHeader = () => {
-  const isAuth = useSelector((s) => s.user.isOpen);
+  const user = useSelector((s) => s.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogin = () => {
@@ -14,6 +15,14 @@ const MenuHeader = () => {
     navigate("/auth");
   };
 
+  const handleUser = () => {
+    console.log("user profile");
+    if (user?.isAuth) {
+      navigate(`/student/${user?.user?.rollno}`);
+    } else {
+      toast.warn("Please Login!");
+    }
+  };
   return (
     <motion.div
       className="flex items-center justify-between px-4 py-3 bg-white shadow-sm"
@@ -28,8 +37,10 @@ const MenuHeader = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
       >
-        <p className="text-gray-700 font-medium text-sm">Guest</p>
-        {!isAuth && (
+        <p className="text-gray-700 font-medium text-sm">
+          {user?.user?.fullname || "Guest"}
+        </p>
+        {!user?.isAuth && (
           <motion.button
             whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.1 }}
@@ -47,8 +58,9 @@ const MenuHeader = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
+        onClick={() => handleUser()}
       >
-        <ProfileAvatar src="" alt="" />
+        <ProfileAvatar src={user?.user?.picture} alt="" />
       </motion.div>
     </motion.div>
   );

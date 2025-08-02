@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { notes } from "../../assets/notes"; // your notes data
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Notes = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="max-w-3xl mx-auto ">
@@ -65,21 +67,44 @@ const SubjectCard = ({ subject }) => {
     </motion.div>
   );
 };
-const NotesCard = ({ note, idx = 0 }) => (
-  <motion.li
-    whileHover={{ scale: 1.01 }}
-    className="px-2 py-1 border-b border-gray-300 flex justify-between items-center hover:shadow-md transition"
-  >
-    <div className="text-sm text-gray-500">
-      <span className="mr-2">{idx+1}.</span>
-      <span>{note.title}</span>
-    </div>
-    <a
-      href={note.url}
-      download
-      className="px-1 text-emerald-400 rounded-lg hover:bg-gray-100"
-    >
-      <i className="fa-solid fa-download"></i>
-    </a>
-  </motion.li>
-);
+
+const NotesCard = ({ note, idx = 0 }) => {
+  const url =
+    "https://res.cloudinary.com/dzgy0hfu1/image/upload/fl_attachment/v1753918246/Class-Sync/Notes_media/thdbgdpkr3jgx3mtytmj.pdf";
+  return (
+    <>
+      <motion.li
+        whileHover={{ scale: 1.01 }}
+        className="px-2 py-1 border-b border-gray-300 flex justify-between items-center hover:shadow-md transition"
+      >
+        {/* Title */}
+        <div className="text-sm text-gray-500">
+          <span className="mr-2">{idx + 1}.</span>
+          <span>{note.title}</span>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex items-center gap-2">
+          {/* View Button (opens in same tab) */}
+          <a
+            href={url}
+            className="px-2 py-1 text-blue-500 hover:bg-blue-50 rounded-md transition"
+            title="View"
+          >
+            <i className="fa-solid fa-eye"></i>
+          </a>
+
+          {/* Download Button */}
+          <a
+            href={url}
+            download
+            className="px-2 py-1 text-emerald-500 hover:bg-emerald-50 rounded-md transition"
+            title="Download"
+          >
+            <i className="fa-solid fa-download"></i>
+          </a>
+        </div>
+      </motion.li>
+    </>
+  );
+};

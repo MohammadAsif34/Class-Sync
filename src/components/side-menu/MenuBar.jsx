@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { closeMenu, toggleMenu } from "../../stores/features/menubar/menuSlice";
 import MenuHeader from "./MenuHeader";
 import { Link, useNavigate } from "react-router-dom";
-import { menuItem } from "../../assets/menuItem";
+import { AdminMenuItem, menuItem } from "../../assets/menuItem";
 import MenuItem from "./MenuItem";
 import { LogoutAPI } from "../../services/auth.action";
 import { unSetUser } from "../../stores/features/user/userSlice";
@@ -34,7 +34,7 @@ const slideVariants = {
 
 const MenuBar = () => {
   const isOnline = useHybridNetworkStatus();
-  const isAuth = useSelector((s) => s.user.isAuth);
+  const user = useSelector((s) => s.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -107,11 +107,25 @@ const MenuBar = () => {
                 onClick={() => handleClick(item?.link)}
               />
             ))}
+            {/* admin Actions */}
+            {user?.isAuth && user?.user?.role === "admin" && (
+              <div>
+                <h1 className="px-2 font-bold">Admin</h1>
+                {AdminMenuItem?.map((item, idx) => (
+                  <MenuItem
+                    key={item?._id || idx}
+                    label={item?.label}
+                    icon={item?.icon}
+                    onClick={() => handleClick(item?.link)}
+                  />
+                ))}
+              </div>
+            )}
           </ul>
         </nav>
 
         {/* Footer Actions */}
-        {isAuth && (
+        {user?.isAuth && (
           <motion.button
             onClick={handleLogout}
             className="w-full py-3 text-sm font-semibold text-rose-500 border-t border-gray-200 hover:bg-rose-50 transition"

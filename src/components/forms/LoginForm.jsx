@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import { LoginAPI } from "../../services/auth.action";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
+  const isAuth = useSelector((s) => s.user.isAuth);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -28,6 +30,7 @@ const LoginForm = () => {
       console.log("login api res ::>", res.message);
       if (res.status == "SUCCESS") {
         navigate("/");
+        window.location.reload();
         toast.success(res.message);
       } else {
         toast.error(res.message);

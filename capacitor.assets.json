@@ -1,0 +1,7 @@
+{
+  "icon": {
+    "source": "./public/logo.png",
+    "padding": 0.2,
+    "backgroundColor": "#ffffff"
+  }
+}

@@ -1,4 +1,14 @@
 import axios from "axios";
+export const RegisterAPI = async (data) => {
+  try {
+    const api = `http://localhost:8800/class-sync/api/v1/auth/register`;
+    const res = await axios.post(api, data, { withCredentials: true });
+    return res.data;
+  } catch (error) {
+    console.log("Error register api ::> ", error);
+    return { message: "Error register api!" };
+  }
+};
 export const LoginAPI = async (data) => {
   try {
     const api = `http://localhost:8800/class-sync/api/v1/auth/login`;

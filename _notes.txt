@@ -56,11 +56,40 @@ npm install @capacitor/network @capacitor/storage
 | 6    | `npx cap open android` | Open project in Android Studio for native build/testing   |
 +------+------------------------+-----------------------------------------------------------+
 
++------+----------------------------------------+---------------------------------------------------+
+| SlNo | Command                                |   Purpose                                         |
++------+----------------------------------------+---------------------------------------------------+
+|      | npm install @capacitor/app             | # App state (active, background, etc.)            |
+|      | npm install @capacitor/browser         | # Open URLs in system browser                     |   
+|      | npm install @capacitor/device          | # Device info (model, OS, UUID)                   |
+|      | npm install @capacitor/filesystem      | # Read/write files                                |
+|      | npm install @capacitor/geolocation     | # Access GPS location                             |
+|      | npm install @capacitor/haptics         | # Vibration feedback                              |
+|      | npm install @capacitor/keyboard        | # Listen/control keyboard                         |
+|      | npm install @capacitor/network         | # Network status                                  |
+|      | npm install @capacitor/screen-reader   | # Accessibility info                              |
+|      | npm install @capacitor/share           | # Native share dialog                             |
+|      | npm install @capacitor/splash-screen   | # Control splash screen                           |
+|      | npm install @capacitor/status-bar      | # Control status bar                              |
+|      | npm install @capacitor/storage         | # Key-value storage (localStorage alternative)    |
++------+----------------------------------------+---------------------------------------------------+
 
 
+ npm install @capacitor/app             
+ npm install @capacitor/browser         
+ npm install @capacitor/device          
+ npm install @capacitor/filesystem      
+ npm install @capacitor/geolocation     
+ npm install @capacitor/haptics         
+ npm install @capacitor/keyboard        
+ npm install @capacitor/network         
+npm install @capacitor/screen-reader   
+ npm install @capacitor/share           
+npm install @capacitor/splash-screen   
+npm install @capacitor/status-bar      
+ npm install @capacitor/storage         
 
---------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------
+
 --------------------------------------------------------------------------------------------
 FOR IOS APP Build
 --------------------------------------------------------------------------------------------

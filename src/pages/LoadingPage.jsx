@@ -22,10 +22,8 @@ const LoadingPage = () => {
         console.log(res.message);
         if (res.status == "SUCCESS") {
           dispatch(setUser(res?.user));
-          // toast.success(res.message);
         } else {
           console.log(res.message);
-          // toast.success(res.message);
         }
       } catch (error) {
         console.log("error protected ::> ", error.message);
@@ -35,7 +33,7 @@ const LoadingPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 shadow-xl">
       {/* Logo */}
       <motion.div
         initial={{ scale: 0.6, opacity: 0 }}
