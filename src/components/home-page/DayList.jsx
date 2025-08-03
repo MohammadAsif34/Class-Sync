@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { days } from "../../../../../Class-Sync/src/utils/days";
 import { setSelectedDay } from "../../redux/features/day/daySlice";
+import { days } from "../../assets/days";
 
 const DayList = () => {
   const day = useSelector((s) => s.day);

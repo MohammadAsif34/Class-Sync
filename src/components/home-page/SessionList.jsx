@@ -1,6 +1,6 @@
 import React from "react";
 import SessionCard from "./SessionCard";
-import { routine } from "../../utils/routine";
+import { routine } from "../../assets/routine";
 import { useSelector } from "react-redux";
 
 const SessionList = () => {
