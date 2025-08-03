@@ -1,22 +1,24 @@
 import React from "react";
-// import { useTodayDate } from "../../hooks/useTodayDate.js";
+import { useDispatch, useSelector } from "react-redux";
 import { days } from "../../../../../Class-Sync/src/utils/days";
+import { setSelectedDay } from "../../redux/features/day/daySlice";
 
 const DayList = () => {
-  //   const { dayRoutine, setDayRoutine } = useApp();
-  const today = new Date().getDay();
+  const day = useSelector((s) => s.day);
+  const dispatch = useDispatch();
+  const today = day.current_day;
   return (
     <div className="w-full px-4 py-3  ">
-      <div className=" w-full py-1   flex  gap-x-3 justify-between items-center overflow-x-hidden">
-        {days?.map((day, idx) => {
-          const isActive = false === day?.day;
-          const isToday = today === day?.day;
+      <div className=" w-full py-1 px-1   flex  gap-x-3 justify-between items-center overflow-x-hidden">
+        {days?.map((d, idx) => {
+          const isActive = day.selected_day === d?.day;
+          const isToday = today === d?.day;
 
           return (
             <button
-              key={day?._id || idx}
-              //   onClick={() => setDayRoutine(day?.day)}
-              className={`flex-1 py-2 rounded-md font-medium text-sm capitalize shadow-md transition-all duration-300
+              key={d?._id || idx}
+              onClick={() => dispatch(setSelectedDay(d?.day))}
+              className={`flex-1 py-2 rounded-md font-medium text-sm capitalize shadow-md transition-all 
                 ${
                   isActive
                     ? "bg-emerald-500 text-white shadow-lg scale-[1.05]"
@@ -24,12 +26,12 @@ const DayList = () => {
                 }
                 ${
                   isToday && !isActive
-                    ? "border border-emerald-400 text-emerald-500"
+                    ? " ring-1 ring-emerald-400 text-emerald-500"
                     : ""
                 }
               `}
             >
-              {day?.name}
+              {d?.name}
             </button>
           );
         })}
