@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Class Sync</string>
+    <string name="title_activity_main">Class Sync</string>
+    <string name="package_name">com.class_sync.routine.aliah</string>
+    <string name="custom_url_scheme">com.class_sync.routine.aliah</string>
+</resources>
