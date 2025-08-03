@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
 const AppHeader = () => {
@@ -28,6 +29,7 @@ const AppHeader = () => {
         <button
           className="p-2 rounded-md hover:bg-emerald-600 transition"
           aria-label="Toggle menu"
+          onClick={() => toast.info("added soon")}
         >
           <i className="fa-solid fa-bars text-xl"></i>
         </button>

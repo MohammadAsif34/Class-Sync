@@ -1,5 +1,8 @@
 {
   "appId": "com.class_sync.routine.aliah",
   "appName": "Class Sync",
-  "webDir": "dist"
+  "webDir": "dist",
+  "server": {
+    "url": "https://class-sync-routine.vercel.app/"
+  }
 }
