@@ -14,8 +14,8 @@ const SessionList = () => {
     );
 
   const data =
-    routine?.timetable[day?.selected_day < 5 ? day?.selected_day : 0]
-      .sessions || [];
+    routine?.timetable[day?.selected_day < 5 ? day?.selected_day - 1 : 0]
+      .sessions;
   return (
     <>
       <ul className=" pb-10 overflow-y-auto px-4 py-2">
