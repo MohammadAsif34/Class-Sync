@@ -8,21 +8,34 @@ const AppHeader = () => {
       <header className="px-4 py-3 pt-10 bg-emerald-500 flex justify-between items-center text-white shadow-sm">
         {/* Left: Logo and Text */}
         <div className="flex items-center space-x-3 ">
-          <Link to={"/"}>
-            <img
-              src="/ClassSync.png " // or use `logo` if imported
-              alt="ClassSync Logo"
-              className="w-12 h-12 object-contain rounded-lg border text-[10px]"
-            />
-          </Link>
+          <div className="w-12 h-12 overflow-hidden rounded-lg border">
+            <Link to={"/"}>
+              <img
+                src="/ClassSync.png" // or use `logo` if imported
+                alt="ClassSync Logo"
+                className="w-full h-full object-contain text-[10px]"
+              />
+            </Link>
+          </div>
+          <div className="w-40  overflow-hidden rounded-lg">
+            <Link to={"/"}>
+              <img
+                src="/text_logo.png" // or use `logo` if imported
+                alt="ClassSync Logo"
+                className="w-full h-full object-contain text-[10px]"
+              />
+            </Link>
+          </div>
+          {/*
           <div>
-            <p className="text-sm font-mono font-medium tracking-wide">
+             <p className="text-sm font-mono font-medium tracking-wide">
               Hi, Students
             </p>
             <h1 className="text-2xl font-bold font-sans tracking-tight">
               Class sync
             </h1>
           </div>
+             */}
         </div>
 
         {/* Right: Menu Icon */}

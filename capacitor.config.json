@@ -3,6 +3,7 @@
   "appName": "Class Sync",
   "webDir": "dist",
   "server": {
-    "url": "https://class-sync-routine.vercel.app/"
+    "url": "https://class-sync-routine.netlify.app/",
+    "cleartext": true
   }
 }
